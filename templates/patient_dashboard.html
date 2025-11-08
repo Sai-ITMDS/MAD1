@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Patient Dashboard</h2>
+
+<h4>Upcoming Appointments</h4>
+<table class="table table-striped">
+  <thead>
+    <tr><th>ID</th><th>Doctor</th><th>Date</th><th>Time</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    {% for appt in appointments %}
+    <tr>
+      <td>{{ appt.id }}</td>
+      <td>{{ appt.doctor_id }}</td>
+      <td>{{ appt.date }}</td>
+      <td>{{ appt.time }}</td>
+      <td>{{ appt.status }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<a href="{{ url_for('book_appointment') }}" class="btn btn-primary mt-2">Book Appointment</a>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Doctor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Edit Doctor</h2>
+    <a href="{{ url_for('manage_doctors') }}" class="btn btn-secondary mb-3">Back to Manage Doctors</a>
+
+    <div class="card p-4">
+        <form method="POST" action="{{ url_for('edit_doctor', doctor_id=doctor.id) }}">
+            <div class="mb-2">
+                <label class="form-label">Doctor Name</label>
+                <input type="text" name="name" class="form-control" value="{{ doctor.name }}" required>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Specialization</label>
+                <input type="text" name="specialization" class="form-control" value="{{ doctor.specialization }}" required>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Availability</label>
+                <select name="availability" class="form-control" required>
+                    <option value="Morning" {% if doctor.availability == 'Morning' %}selected{% endif %}>Morning (8AM-12PM)</option>
+                    <option value="Afternoon" {% if doctor.availability == 'Afternoon' %}selected{% endif %}>Afternoon (12PM-4PM)</option>
+                    <option value="Evening" {% if doctor.availability == 'Evening' %}selected{% endif %}>Evening (4PM-8PM)</option>
+                    <option value="Full Day" {% if doctor.availability == 'Full Day' %}selected{% endif %}>Full Day (8AM-8PM)</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Update Doctor</button>
+        </form>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

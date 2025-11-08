@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Doctor Dashboard</h2>
+
+<h4>Appointments</h4>
+<table class="table table-striped">
+  <thead>
+    <tr><th>ID</th><th>Patient</th><th>Date</th><th>Time</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    {% for appt in appointments %}
+    <tr>
+      <td>{{ appt.id }}</td>
+      <td>{{ appt.patient_id }}</td>
+      <td>{{ appt.date }}</td>
+      <td>{{ appt.time }}</td>
+      <td>{{ appt.status }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<a href="{{ url_for('treatment') }}" class="btn btn-success mt-2">Add Treatment</a>
+{% endblock %}

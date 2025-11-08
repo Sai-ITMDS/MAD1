@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Add Treatment</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label for="appointment_id" class="form-label">Appointment ID</label>
+    <input type="number" class="form-control" name="appointment_id" id="appointment_id" required>
+  </div>
+  <div class="mb-3">
+    <label for="diagnosis" class="form-label">Diagnosis</label>
+    <textarea class="form-control" name="diagnosis" id="diagnosis" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="prescription" class="form-label">Prescription</label>
+    <textarea class="form-control" name="prescription" id="prescription" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="notes" class="form-label">Notes</label>
+    <textarea class="form-control" name="notes" id="notes"></textarea>
+  </div>
+  <button type="submit" class="btn btn-success">Save Treatment</button>
+</form>
+{% endblock %}

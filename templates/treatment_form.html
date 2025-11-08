@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card p-4">
+      <h5>Complete Appointment - {{ appt.patient.user.name }}</h5>
+      <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-2">{{ form.diagnosis.label }} {{ form.diagnosis(class='form-control') }}</div>
+        <div class="mb-2">{{ form.prescription.label }} {{ form.prescription(class='form-control') }}</div>
+        <div class="mb-2">{{ form.notes.label }} {{ form.notes(class='form-control') }}</div>
+        {{ form.submit(class='btn btn-success') }}
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

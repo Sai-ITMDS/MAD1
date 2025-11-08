@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .dashboard-card {
+            min-width: 250px;
+            text-align: center;
+            padding: 25px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+        .dashboard-card h4 {
+            margin-bottom: 15px;
+        }
+        .dashboard-card i {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #0d6efd;
+        }
+        .count {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="mb-4">Admin Dashboard</h2>
+
+    <div class="row g-3">
+        <!-- Doctors Card -->
+        <div class="col-md-4">
+            <div class="dashboard-card bg-light">
+                <i class="bi bi-person-badge"></i>
+                <h4>Doctors</h4>
+                <p class="count">{{ doctors|length }}</p>
+                <a href="{{ url_for('manage_doctors') }}" class="btn btn-primary">Manage Doctors</a>
+            </div>
+        </div>
+
+        <!-- Patients Card -->
+        <div class="col-md-4">
+            <div class="dashboard-card bg-light">
+                <i class="bi bi-people"></i>
+                <h4>Patients</h4>
+                <p class="count">{{ patients|length }}</p>
+                <a href="{{ url_for('manage_patients') }}" class="btn btn-primary">Manage Patients</a>
+            </div>
+        </div>
+
+        <!-- Appointments Card -->
+        <div class="col-md-4">
+            <div class="dashboard-card bg-light">
+                <i class="bi bi-calendar-check"></i>
+                <h4>Appointments</h4>
+                <p class="count">{{ appointments|length }}</p>
+                <a href="{{ url_for('manage_appointments') }}" class="btn btn-primary">Manage Appointments</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

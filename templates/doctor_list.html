@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="app-shell">
+  <aside class="sidebar">
+    <h5 class="mb-3">Admin</h5>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="{{ url_for('admin_dashboard') }}">Dashboard</a>
+      <a class="nav-link active" href="{{ url_for('admin_manage_doctors') }}">Manage Doctors</a>
+      <a class="nav-link" href="{{ url_for('admin_search') }}">Search</a>
+    </nav>
+  </aside>
+  <div class="content">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Add Doctor</h5>
+          <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="mb-2">{{ form.name.label }} {{ form.name(class='form-control') }}</div>
+            <div class="mb-2">{{ form.email.label }} {{ form.email(class='form-control') }}</div>
+            <div class="mb-2">{{ form.password.label }} {{ form.password(class='form-control') }}</div>
+            <div class="mb-2">{{ form.specialization.label }} {{ form.specialization(class='form-control') }}</div>
+            <div class="mb-2">{{ form.availability.label }} {{ form.availability(class='form-control', rows=4) }}</div>
+            {{ form.submit(class='btn btn-primary') }}
+          </form>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card p-3">
+          <h5>Existing Doctors</h5>
+          <table class="table">
+            <thead><tr><th>Name</th><th>Spec</th><th>Availability</th></tr></thead>
+            <tbody>
+              {% for d in doctors %}
+              <tr><td>{{ d.user.name }}</td><td>{{ d.specialization }}</td><td>{{ d.availability or '-' }}</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
