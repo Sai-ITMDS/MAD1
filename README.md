@@ -1,6 +1,6 @@
 # Hospital Management System v2 (Full)
 
-A comprehensive hospital management system built with Flask, featuring role-based access control, appointment scheduling, and analytics dashboard.
+AppDev1 project created by Sairam Ramakrishnan (24F2006201) - Hospital Mgmt System built with Flask to demonstrate CRUD for Doctors, Patients and appointments.
 
 ## Features
 
